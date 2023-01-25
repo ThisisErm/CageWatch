@@ -37,7 +37,7 @@ This is what the app will look like:
 
 Below is the entity relationship diagram for the app:
 
-![alt ERD](ERD.PNG "ERD")
+![alt ERD](ERD.png "ERD")
 
 _________________________________________________________________
 ## MVP User Stories

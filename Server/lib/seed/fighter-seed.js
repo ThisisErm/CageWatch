@@ -8,7 +8,7 @@ const startingfighters = [
 	{
 		firstName: 'Anderson',
 		lastName: 'Silva',
-		skills: ['Muay-Thai'],
+		skills: [],
 		wins: 9,
 		losses: 1,
 		draws: 0,
@@ -16,7 +16,7 @@ const startingfighters = [
 	{
 	firstName: 'George',
 		lastName: 'St.Pierre',
-		skills: ['BJJ', 'Kickboxing', 'wrestling'],
+		skills: [],
 		wins: 10,
 		losses: 1,
 		draws: 0,
@@ -24,7 +24,7 @@ const startingfighters = [
 	{
 		firstName: 'Nate',
 		lastName: 'Diaz',
-		skills: ['Boxing', 'BJJ'],
+		skills: [],
 		wins: 8,
 		losses: 1,
 		draws: 0,

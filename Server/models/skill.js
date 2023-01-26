@@ -11,7 +11,7 @@ const skillSchema = new Schema(
 		
         owner: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'Fighter'
+            ref: 'User'
         }
 	},
 	{

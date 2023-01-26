@@ -1,23 +1,3 @@
-// Lab:
-// Read through the code together with the comments and try to make sense of what's happening.
-
-// Why do we require the User model in this file?
-//
-//Because athentication is attached to the user object
-// 
-// If this middleware is used, how will the user object be received in our route?
-//
-// It will be received in the request object as 'request.user'.
-//
-// When will we call createUserToken?
-//
-// When a user logs in.
-//
-// When might we want to use requireToken?
-//
-// Anytime we use a route that requires authentication 
-//
-
 
 // Require the needed npm packages
 const passport = require('passport')

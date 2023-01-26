@@ -1,0 +1,75 @@
+h1 {
+    text-align: center;
+}
+
+#fighter-title{
+    text-align: center;
+}
+
+/* Position the message container at the top center of the page */
+#message-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+/*nav bar*/
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+  font-size: larger;
+  
+}
+
+li {
+  float: left; 
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #111;
+  }
+
+/* Position the fighters section on the left side of the screen */
+.fighters {
+    float: left;
+    width: 50%;
+}
+
+
+/* Style the form inputs and container divs */
+input[type=text], input[type=number], input[type=submit] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+
+#index-fighter-container {
+    padding: 16px;
+    margin-top: 16px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+
+.hidden {
+    display: none;
+}

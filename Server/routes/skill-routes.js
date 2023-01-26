@@ -5,17 +5,6 @@ const { handle404 } = require('../lib/custom-errors')
 
 const router = express.Router()
 
-// INDEX
-// GET /campaigns
-router.get('/fighters', (req, res, next) => {
-	Campaign.find()
-		.then((fighters) => {
-			return fighters.map((fighter) => fighters)
-		})
-		.then((fighters) => res.status(200).json({ fighters: fighters }))
-		.catch(next)
-})
-
 // CREATE
 // POST /skills
 router.post('/skills', (req, res, next) => {
@@ -24,10 +13,10 @@ router.post('/skills', (req, res, next) => {
     const skill = req.body.skill
 
     //adding owner
-    skill.owner = req.fighter._id
+    // skill.owner = req.user._id
 
-    // find the fighter that I want to add the skill too
-    // once found `push` the skill into the Mongoose Array
+    // find the fighter that I want to add the skill to
+    // `push` the skill into the Mongoose Array
     // send status of 201 created if success
     // next if failure
     Fighter.findById(fighterId)

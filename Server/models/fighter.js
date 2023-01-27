@@ -1,7 +1,6 @@
 const mongoose = require('mongoose')
 const skillSchema = require('./skill')
 
-
 const Schema = mongoose.Schema
 
 const fighterSchema = new Schema(

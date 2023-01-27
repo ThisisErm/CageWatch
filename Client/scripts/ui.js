@@ -1,9 +1,14 @@
+import { store } from './store.js'
+
+
 const indexFighterContainer = document.querySelector('#index-fighter-container')
 const messageContainer = document.querySelector('#message-container')
 const showFighterContainer = document.querySelector('#show-fighter-container')
+const indexContainer = document.querySelector('#index-container')
 
-//add skill
 
+//add auth
+const authContainer = document.querySelector('#auth-container')
 
 
 
@@ -25,7 +30,7 @@ fighterButton.addEventListener('click', function() {
 
 })
 
-
+//Showing fighter actions
 export const onIndexFighterSuccess = (fighters) => {
     fighters.forEach(fighter => {
         const div = document.createElement('div')
@@ -53,7 +58,7 @@ export const onShowFighterSuccess = (fighter) => {
     const div = document.createElement('div')
     div.innerHTML = `
         <h3>${fighter.firstName}  ${fighter.lastName}</h3>
-        <p>${fighter.skills}</p>
+        <p>${fighter.skill}</p>
         <p>${fighter.wins}</p>
         <p>${fighter.losses}</p>
         <p>${fighter.draws}</p>
@@ -62,7 +67,7 @@ export const onShowFighterSuccess = (fighter) => {
         <form data-id="${fighter._id}">
             <input type="text" name="firstName" value="${fighter.firstName}" />
             <input type="text" name="lastName" value="${fighter.lastName}" />
-            <input type="text" name="skills" value="${fighter.skills}" />
+            <input type="text" name="skills" value="${fighter.skill}" />
             <input type="number" name="wins" value="${fighter.wins}" />
             <input type="number" name="losses" value="${fighter.losses}" />
             <input type="number" name="draws" value="${fighter.draws}" />
@@ -82,4 +87,15 @@ export const onDeleteFighterSuccess = () => {
     messageContainer.innerText = 'Delete was successful :)'
 }
 
-//add skills
+// User
+export const onSignUpSuccess = () => {
+    messageContainer.innerHTML = 'You\'ve created a new user! Now Sign In'
+}
+
+export const onSignInSuccess = (userToken) => {
+    messageContainer.innerHTML = ''
+    store.userToken = userToken
+    authContainer.classList.add('hide')
+    indexContainer.classList.remove('hide')
+}
+

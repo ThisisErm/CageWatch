@@ -1,4 +1,4 @@
-import { indexFighter, createFighter, showFighter, updateFighter, deleteFighter,
+import { indexFighter, createFighter, showFighter, updateFighter, deleteFighter, signUp, signIn
 		 
 } from './api.js'
 import {
@@ -9,28 +9,21 @@ import {
 	onShowFighterSuccess,
 	onUpdateFighterSuccess,
 	onDeleteFighterSuccess,
-
-	//skill
+	onSignUpSuccess,
+	onSignInSuccess,
  
 } from './ui.js'
 
 const createFighterForm = document.querySelector('#create-fighter-form')
 const indexFighterContainer = document.querySelector('#index-fighter-container')
 const showFighterContainer = document.querySelector('#show-fighter-container')
-
-//add skill
+const signUpContainer = document.querySelector('#sign-up-form-container')
+const signInContainer = document.querySelector('#sign-in-form-container')
  
 
-//fighters
-indexFighter()
-    .then(res => res.json())
-    .then(res => {
-        console.log(res)
-        onIndexFighterSuccess(res.fighters)
-    })
-    .catch(onFailure)
 
 
+//create fighter form
 createFighterForm.addEventListener('submit', (event) => {
     event.preventDefault()
 
@@ -99,5 +92,40 @@ showFighterContainer.addEventListener('click', (event) => {
 		.catch(onFailure)
 })
 
-//skills
+// User 
+signUpContainer.addEventListener('submit', (event) => {
+	event.preventDefault()
+	const userData = {
+		credentials: {
+			email: event.target['email'].value,
+			password: event.target['password'].value,
+		},
+	}
+	signUp(userData).then(onSignUpSuccess).catch(onFailure)
+})
 
+signInContainer.addEventListener('submit', (event) => {
+	event.preventDefault()
+	const userData = {
+		credentials: {
+			email: event.target['email'].value,
+			password: event.target['password'].value,
+		},
+	}
+	signIn(userData)
+		.then((res) => res.json())
+		.then((res) => onSignInSuccess(res.token))
+		.then((res) => res.json())
+		.then((res) => res.json())
+		.then((res) => onIndexFighterSuccess(res.fighters))
+		.catch(onFailure)
+
+				//index fighters
+indexFighter()
+.then(res => res.json())
+.then(res => {
+	console.log(res)
+	onIndexFighterSuccess(res.fighters)
+})
+.catch(onFailure)
+})

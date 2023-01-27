@@ -1,19 +1,19 @@
 const express = require('express')
-
 const Fighter = require('../models/fighter')
 const { handle404 } = require('../lib/custom-errors')
-
 const router = express.Router()
+const { requireToken } = require('../config/auth')
+
 
 // CREATE
 // POST /skills
-router.post('/skills', (req, res, next) => {
+router.post('/skills', requireToken, (req, res, next) => {
     const fighterId = req.body.skill.fighterId
 
     const skill = req.body.skill
 
     //adding owner
-    // skill.owner = req.user._id
+    skill.owner = req.user._id
 
     // find the fighter that I want to add the skill to
     // `push` the skill into the Mongoose Array
@@ -22,7 +22,7 @@ router.post('/skills', (req, res, next) => {
     Fighter.findById(fighterId)
         .then(handle404)
         .then(fighter => {
-            fighter.skills.push(skill)
+            fighter.skills.push(req.body.skill)
 
             // have to save the doc when modified
             return fighter.save()
@@ -35,7 +35,7 @@ router.post('/skills', (req, res, next) => {
 
 // UPDATE
 // PATCH /skills/:id
-router.patch('/skills/:skillId', (req, res, next) => {
+router.patch('/skills/:skillId', requireToken, (req, res, next) => {
     const fighterId = req.body.skill.fighterId
 
     const skillBody = req.body.skill
@@ -50,7 +50,6 @@ router.patch('/skills/:skillId', (req, res, next) => {
             skill.set(skillBody)
 
             // saving it
-            // I have modified the doc I need to save it
             return fighter.save()
         })
         .then(() => res.sendStatus(204))
@@ -59,7 +58,7 @@ router.patch('/skills/:skillId', (req, res, next) => {
 
 // DELETE
 // DELETE /skills/:skillId
-router.delete('/skills/:skillId', (req, res, next) => {
+router.delete('/skills/:skillId', requireToken, (req, res, next) => {
     const fighterId = req.body.skill.fighterId
 
     Fighter.findById(fighterId)

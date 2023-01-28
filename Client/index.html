@@ -9,23 +9,30 @@
     <link rel="stylesheet" href = "index.css">
 </head>
 <body>
-
-<h1 id="title">MMA Fighter Tracker</h1>
     
+<h1 id="title">MMA Fighter Tracker</h1>
+<div id="message-container">
+</div>
+<br>
+
+
+<!-- nav bar -->
 <ul>
     <li class="home-button"><a href="#home">Home</a></li>
-    <li class="fighter-button"><a href="#create-fighter">Create fighter</a></li>
-  </ul>
+    <li class="create-button"><a href="#create-fighter">Create fighter</a></li>
+    <li class="fighter-button"><a href="#showfighter">See Fighters</a></li>
+</ul>
   
 
-    <div id="message-container"></div>
-    
-    <main class="fighters" >
-        <h2 id="fighter-title">fighters</h2>
+
+<!-- Show fighters -->
+    <div id="fighters">
+    <h2 id="fighter-title">Fighters</h2>
     <div id="index-fighter-container"></div>
     <div id="show-fighter-container"></div>
-  
-</main>
+    </div>
+
+<!-- create fighters -->
 <form id="create-fighter-form" class ='hidden'>
     <h2>Create fighter</h2>
     <input type="text" name="firstName" placeholder="first name">
@@ -39,7 +46,7 @@
 </body>
 
 <main>
-    <!-- Container for sign-up and sign-in form -->
+    <!-- authentication -->
     <div id="auth-container" class="container">
     <div class="row">
     <div class="col">

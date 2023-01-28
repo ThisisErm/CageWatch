@@ -7,7 +7,7 @@ const { requireToken } = require('../config/auth')
 
 //INDEX
 // GET /fighters
-router.get('/fighters', requireToken,  (req, res, next) => {
+router.get('/fighters', requireToken, (req, res, next) => {
     Fighter.find()
         .then(fighters => {
             return fighters.map(fighter => fighter)

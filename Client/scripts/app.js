@@ -19,7 +19,6 @@ const indexFighterContainer = document.querySelector('#index-fighter-container')
 const showFighterContainer = document.querySelector('#show-fighter-container')
 const signUpContainer = document.querySelector('#sign-up-form-container')
 const signInContainer = document.querySelector('#sign-in-form-container')
- 
 
 
 
@@ -31,7 +30,7 @@ createFighterForm.addEventListener('submit', (event) => {
 			fighter: {
 				firstName: event.target['firstName'].value,
 				lastName: event.target['lastName'].value,
-				skills: event.target['skills'].value,
+				skills: event.target['skill'].value,
 				wins: event.target['wins'].value,
                 losses: event.target['losses'].value,
 				draws: event.target['draws'].value,
@@ -115,9 +114,8 @@ signInContainer.addEventListener('submit', (event) => {
 	signIn(userData)
 		.then((res) => res.json())
 		.then((res) => onSignInSuccess(res.token))
-		.then((res) => res.json())
-		.then((res) => res.json())
-		.then((res) => onIndexFighterSuccess(res.fighters))
+		// .then((res) => res.json())
+		// .then((res) => onIndexFighterSuccess(res.fighters))
 		.catch(onFailure)
 
 				//index fighters
@@ -125,7 +123,7 @@ indexFighter()
 .then(res => res.json())
 .then(res => {
 	console.log(res)
-	onIndexFighterSuccess(res.fighters)
+	onIndexFighterSuccess(res.fighters)	
 })
 .catch(onFailure)
 })

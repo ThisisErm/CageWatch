@@ -29,6 +29,14 @@ const startingfighters = [
 		losses: 1,
 		draws: 0,
 	},
+	{
+		firstName: 'Forrest',
+		lastName: 'Griffin',
+		skills: ['Wrestling'],
+		wins: 7,
+		losses: 1,
+		draws: 0,
+	},
 ]
 
 // /seed/fighters

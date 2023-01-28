@@ -50,9 +50,6 @@ _________________________________________________________________
 _________________________________________________________________
 ## Pseudo Code for MVP User Stories
 
-### As a user, I want to see a 4X4 grid of clickable cards.
-* Build an html landing page with credential fields for "username" & "password" and a login button that sends the credentials to the server.
-
 ### As a user, I want to log in and out.
 * Build an auth.js file with passport, bcrypt and json web token. 
 * Include a user model and route that uses bcrypt and the auth.js file.    

@@ -1,4 +1,5 @@
-import { indexFighter, createFighter, showFighter, updateFighter, deleteFighter, signUp, signIn
+import { store } from './store.js'
+import { indexFighter, createFighter, showFighter, updateFighter, deleteFighter, signUp, signIn,  
 		 
 } from './api.js'
 import {
@@ -11,7 +12,7 @@ import {
 	onDeleteFighterSuccess,
 	onSignUpSuccess,
 	onSignInSuccess,
- 
+	 
 } from './ui.js'
 
 const createFighterForm = document.querySelector('#create-fighter-form')
@@ -30,7 +31,7 @@ createFighterForm.addEventListener('submit', (event) => {
 			fighter: {
 				firstName: event.target['firstName'].value,
 				lastName: event.target['lastName'].value,
-				skills: event.target['skill'].value,
+				// skills: event.target['skills'].value,
 				wins: event.target['wins'].value,
                 losses: event.target['losses'].value,
 				draws: event.target['draws'].value,
@@ -56,35 +57,37 @@ indexFighterContainer.addEventListener('click', (event) => {
 			.catch(onFailure)
 })
 
+
 showFighterContainer.addEventListener('submit', (event) => {
 	event.preventDefault()
 
 	const id = event.target.getAttribute('data-id')
 
+
 	const fighterData = {
 		fighter: {
 			firstName: event.target['firstName'].value,
 			lastName: event.target['lastName'].value,
-			skills: event.target['skills'].value,
+			// skills: event.target['skills'].value,
 			wins: event.target['wins'].value,
-            losses: event.target['losses'].value,
-            draws: event.target['draws'].value,
-
-		},
+			losses: event.target['losses'].value,
+			draws: event.target['draws'].value,
+		}
 	}
+	
 
 	if (!id) return
 
 	updateFighter(fighterData, id)
-		// this function (onUpdatefighterSuccess) does not need anything to run. NO params
-		.then(onUpdateFighterSuccess)
-		.catch(onFailure)
+	// this function (onUpdatefighterSuccess) does not need anything to run. NO params
+	.then(onUpdateFighterSuccess)
+	.catch(onFailure)
 })
 
 showFighterContainer.addEventListener('click', (event) => {
-	const id = event.target.getAttribute('data-id')
+const id = event.target.getAttribute('data-id')
 
-	if (!id) return
+if (!id) return
 
 	deleteFighter(id)
 		.then(onDeleteFighterSuccess)
@@ -127,3 +130,6 @@ indexFighter()
 })
 .catch(onFailure)
 })
+
+
+

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta fighterset="UTF-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="module" src="./scripts/app.js"></script>
@@ -18,9 +18,10 @@
 
 <!-- nav bar -->
 <ul>
-    <li class="home-button"><a href="#home">Home</a></li>
     <li class="create-button"><a href="#create-fighter">Create fighter</a></li>
-    <li class="fighter-button"><a href="#showfighter">See Fighters</a></li>
+    <li class="index-button"><a href="#showfighter">See Fighters</a></li>
+    <li class="logout-button"><a href="#logout">Log Out</a></li>
+
 </ul>
   
 
@@ -37,12 +38,11 @@
     <h2>Create fighter</h2>
     <input type="text" name="firstName" placeholder="first name">
     <input type="text" name="lastName" placeholder="last name">
-    <input type="text" name="skills" placeholder="skills">
     <input type="number" name="wins" placeholder="wins">
     <input type="number" name="losses" placeholder="losses">
     <input type="number" name="draws" placeholder="draws">
     <input type="submit" value="Create fighter">
-    </form>
+    </form>   
 </body>
 
 <main>

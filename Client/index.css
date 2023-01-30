@@ -10,6 +10,7 @@ body {
 #message-container {
   text-align: center;
   font-weight: bold;
+  display: block !important;
  }
 
 /* Navigation */
@@ -87,6 +88,6 @@ input[type="submit"]:hover {
 #index-fighter-container {
   display: none;
 }
-.create-button, .fighter-button {
+.create-button, .index-button, .logout-button {
   display: none;
 }

@@ -14,7 +14,8 @@ const fighterSchema = new Schema(
 			required: true,
 		},
 		skills: [skillSchema],
-			
+		required: false,
+
         wins: {
             type: Number,
             required: true,

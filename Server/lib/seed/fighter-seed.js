@@ -32,7 +32,7 @@ const startingfighters = [
 	{
 		firstName: 'Forrest',
 		lastName: 'Griffin',
-		skills: ['Wrestling'],
+		skills: [],
 		wins: 7,
 		losses: 1,
 		draws: 0,

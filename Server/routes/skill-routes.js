@@ -4,6 +4,18 @@ const { handle404 } = require('../lib/custom-errors')
 const router = express.Router()
 const { requireToken } = require('../config/auth')
 
+//GET/Index
+router.get('/skills', (req, res) => {
+    Fighter.find({})
+        .then(fighters => {
+            const skills = fighters.map(fighter => fighter.skills)
+            res.json({ skills: JSON.stringify(skills) })
+        })
+        .catch(err => {
+            res.status(500).json({ message: 'Something went wrong' })
+        })
+})
+
 
 // CREATE
 // POST /skills
@@ -13,7 +25,7 @@ router.post('/skills', requireToken, (req, res, next) => {
     const skill = req.body.skill
 
     //adding owner
-    skill.owner = req.user._id
+    // skill.owner = req.user._id
 
     // find the fighter that I want to add the skill to
     // `push` the skill into the Mongoose Array

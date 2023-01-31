@@ -6,7 +6,6 @@ export const signUp = (data) => {
 		method: 'POST',
 		headers: {
 			'Accept': 'application/json',
-            'Authorization': store.userToken,
 			'Content-Type': 'application/json',
 		},
 		body: JSON.stringify(data),
@@ -18,7 +17,6 @@ export const signIn = (data) => {
 		method: 'POST',
 		headers: {
 			'Accept': 'application/json',
-            'Authorization': store.userToken,
 			'Content-Type': 'application/json',
 		},
 		body: JSON.stringify(data),
@@ -28,7 +26,11 @@ export const signIn = (data) => {
 
 //fighter
 export const indexFighter = () => {
-    return fetch(`http://localhost:8000/fighters`)
+    return fetch(`http://localhost:8000/fighters`), {
+        headers: {
+			'Authorization': `Bearer ${store.userToken}`
+    }
+}
 }
 
 export const createFighter = (data) => {
@@ -36,8 +38,9 @@ export const createFighter = (data) => {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
-            'Authorization': store.userToken,
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${store.userToken}`
+            
         },
         body: JSON.stringify(data)
     })
@@ -52,8 +55,8 @@ export const updateFighter = (data, id) => {
         method: 'PATCH',
         headers: {
             'Accept': 'application/json',
-            'Authorization': store.userToken,
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${store.userToken}`
         },
         body: JSON.stringify(data)
     })
@@ -76,7 +79,8 @@ export const indexSkills = (fighterId) => {
     headers: {
         'Accept': 'application/json', 
         'Authorization': store.userToken,
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${store.userToken}`
     },
     body: JSON.stringify(data)
     })
@@ -91,8 +95,8 @@ export const indexSkills = (fighterId) => {
     method: 'PATCH',
     headers: {
     'Accept': 'application/json',
-    'Authorization': store.userToken,
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${store.userToken}`
     },
     body: JSON.stringify(data)
     })
@@ -100,9 +104,11 @@ export const indexSkills = (fighterId) => {
     
     export const deleteSkill = (fighterId, skillId) => {
     return fetch(`http://localhost:8000/fighters/${fighterId}/skills/${skillId}`, {
-    method: 'DELETE'
-    
-    })
-    }
+		method: 'DELETE',
+		headers: {
+			Authorization: `Bearer ${store.userToken}`,
+		},
+	})
+}
 
 

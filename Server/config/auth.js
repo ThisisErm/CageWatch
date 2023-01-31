@@ -1,4 +1,3 @@
-
 // Require the needed npm packages
 const passport = require('passport')
 const bcrypt = require('bcrypt')
@@ -71,6 +70,7 @@ const createUserToken = (req, user) => {
 	// to tell the client whether the email was not found or that the
 	// password was incorrect.  Instead we send the same message for both
 	// making it much harder for hackers.
+	console.log(req.body)
 	if (
 		!user ||
 		!req.body.credentials.password ||

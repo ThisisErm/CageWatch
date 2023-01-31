@@ -1,4 +1,3 @@
-import { store } from './store.js'
 import { indexFighter, createFighter, showFighter, updateFighter, deleteFighter, signUp, signIn,  
 		 
 } from './api.js'
@@ -117,19 +116,20 @@ signInContainer.addEventListener('submit', (event) => {
 	signIn(userData)
 		.then((res) => res.json())
 		.then((res) => onSignInSuccess(res.token))
-		// .then((res) => res.json())
-		// .then((res) => onIndexFighterSuccess(res.fighters))
+		.then(indexFighter)
+		.then((res) => res.json())
+		.then((res) => onIndexFighterSuccess(res.fighters))
 		.catch(onFailure)
 
 				//index fighters
-indexFighter()
-.then(res => res.json())
-.then(res => {
-	console.log(res)
-	onIndexFighterSuccess(res.fighters)	
-})
-.catch(onFailure)
 })
 
+showFighterContainer.addEventListener('click', (event) => {
+	const id = event.target.getAttribute('data-id')
 
+	if (!id) return
 
+	deleteFighter(id)
+		.then(onDeleteFighterSuccess)
+		.catch(onFailure)
+})

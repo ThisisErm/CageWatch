@@ -73,6 +73,11 @@ export const onCreateFighterSuccess = () => {
 
 export const onShowFighterSuccess = (fighter) => {
     const div = document.createElement('div')
+
+    //set div id to random number
+const randomNumber = Math.floor(Math.random() * 100000)
+div.setAttribute("id", `${randomNumber}`)
+
     div.innerHTML = `
         <h3>${fighter.firstName}  ${fighter.lastName}</h3>
         <p> Skills: ${fighter.skills.map(skill => skill.title).join(', ')}</p>
@@ -96,7 +101,27 @@ export const onShowFighterSuccess = (fighter) => {
     showFighterContainer.style.display ='block'
 
 
-    // editting skills
+    //showing individual fighters
+
+    const fighters = document.querySelectorAll('div')
+
+    //hide div if not id clicked on or #index-fighter-container || #fighters
+    fighters.forEach(fighter => {
+      fighter.addEventListener("click", function(event) {
+        if (this.id !== "index-fighter-container" && this.id !== "fighters") {
+          fighters.forEach(f => {
+            if (f.id !== this.id && f.id !== "index-fighter-container" && f.id !== "fighters" && event.target.tagName !== 'INPUT') {
+              f.style.display = "none"
+              
+            }
+          })
+          this.style.display = "block"
+        }
+      })
+    })
+
+
+    // adding skills
 const skillsButton = document.querySelector('#edit-skills-button')
 
 skillsButton.addEventListener('click', function() {
@@ -119,7 +144,7 @@ skillsButton.addEventListener('click', function() {
             skill: {
                 title: event.target['title'].value,
                 fighterId: fighter._id
-                },
+                }
         }
         
         createSkill(skillsData)

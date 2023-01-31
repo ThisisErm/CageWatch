@@ -37,6 +37,38 @@ const startingfighters = [
 		losses: 1,
 		draws: 0,
 	},
+	{
+		firstName: 'Chuck',
+		lastName: 'Lidell',
+		skills: [],
+		wins: 7,
+		losses: 1,
+		draws: 0,
+	},
+	{
+		firstName: 'Rampage',
+		lastName: 'Jackson',
+		skills: [],
+		wins: 7,
+		losses: 1,
+		draws: 0,
+	},
+	{
+		firstName: 'John',
+		lastName: 'Jones',
+		skills: [],
+		wins: 7,
+		losses: 1,
+		draws: 0,
+	},
+	{
+		firstName: 'Bob',
+		lastName: 'Sapp',
+		skills: [],
+		wins: 7,
+		losses: 1,
+		draws: 0,
+	},
 ]
 
 // /seed/fighters

@@ -19,7 +19,7 @@ router.get('/skills', (req, res) => {
 
 // CREATE
 // POST /skills
-router.post('/skills', requireToken, (req, res, next) => {
+router.post('/skills', (req, res, next) => {
     const fighterId = req.body.skill.fighterId
 
     const skill = req.body.skill
@@ -47,7 +47,7 @@ router.post('/skills', requireToken, (req, res, next) => {
 
 // UPDATE
 // PATCH /skills/:id
-router.patch('/skills/:skillId', requireToken, (req, res, next) => {
+router.patch('/skills/:skillId', (req, res, next) => {
     const fighterId = req.body.skill.fighterId
 
     const skillBody = req.body.skill
@@ -70,7 +70,7 @@ router.patch('/skills/:skillId', requireToken, (req, res, next) => {
 
 // DELETE
 // DELETE /skills/:skillId
-router.delete('/skills/:skillId', requireToken, (req, res, next) => {
+router.delete('/skills/:skillId', (req, res, next) => {
     const fighterId = req.body.skill.fighterId
 
     Fighter.findById(fighterId)

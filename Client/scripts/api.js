@@ -71,7 +71,6 @@ export const indexSkills = (fighterId) => {
     method: 'POST',
     headers: {
         'Accept': 'application/json', 
-        'Authorization': store.userToken,
         'Content-Type': 'application/json'
     },
     body: JSON.stringify(data)

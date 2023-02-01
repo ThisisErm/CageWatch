@@ -24,16 +24,8 @@ _________________________________________________________________
 
 _________________________________________________________________
 ## Next Steps
-* As I want the app to connect to a fighter database via API.
+* As a user, I want the app to connect to a fighter database via API.
 * As a user, I want to query fighters based on specific categories (e.g. win record, knockout, submissions, team, country etc.).
 * As a user, I want to access fight footage of specific fighters.
 * As a user, I want to change the app's UI style from the settings.
 _________________________________________________________________
-## End Points
-
-Method	Endpoint	Description
-GET	/fighters/:id/skills	Retrieve a list of skills for a fighter
-GET	/fighters/:id/skills/:id	Retrieve a single skill for a fighter by ID
-POST	/fighters/:id/skills	Add a new skill for a fighter
-PATCH	/fighters/:id/skills/:id	Update a skill for a fighter by ID
-DELETE	/fighters/:id/skills/:id	Delete a skill for a fighter by ID

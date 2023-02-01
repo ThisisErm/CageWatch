@@ -48,7 +48,7 @@ createButton.addEventListener('click', function() {
 
 })
 
-//Show individual fighter
+//Index fighters
 export const onIndexFighterSuccess = (fighters) => {
     fighters.forEach(fighter => {
         const div = document.createElement('div')
@@ -71,16 +71,13 @@ export const onCreateFighterSuccess = () => {
     messageContainer.innerText = 'You have created a fighter!! :)'
 }
 
+//show individual fighters
 export const onShowFighterSuccess = (fighter) => {
     const fighterCard = document.querySelector('#fighter-card') 
     if (fighterCard) fighterCard.remove()
     const div = document.createElement('div')
     div.setAttribute('id', 'fighter-card')
 
-
-    //set div id to random number
-// const randomNumber = Math.floor(Math.random() * 100000)
-// div.setAttribute("id", `${randomNumber}`)
 
     div.innerHTML = `
         <h3>${fighter.firstName}  ${fighter.lastName}</h3>
@@ -105,27 +102,6 @@ export const onShowFighterSuccess = (fighter) => {
     indexFighterContainer.style.display ='none'
     showFighterContainer.style.display ='block'
 
-
-    // //showing individual fighters
-
-    // const fighters = document.querySelectorAll('div')
-
-    // //hide div if not id clicked on or #index-fighter-container || #fighters
-    // fighters.forEach(fighter => {
-    //   fighter.addEventListener("click", function(event) {
-    //     if (this.id !== "index-fighter-container" && this.id !== "fighters") {
-    //       fighters.forEach(f => {
-    //         if (f.id !== this.id && f.id !== "index-fighter-container" && f.id !== "fighters" && event.target.tagName !== 'INPUT') {
-    //           f.style.display = "none"
-              
-    //         }
-    //       })
-    //       this.style.display = "block"
-    //     }
-    //   })
-    // })
-
-
     // adding skills
 const skillsButton = document.querySelector('#edit-skills-button')
 
@@ -135,7 +111,7 @@ skillsButton.addEventListener('click', function() {
     `
         <form id="skills-form">
             <input type="text" name="title">
-            <input type="submit" value="Add Skill" />
+            <input id="add-skill-button" type="submit" value="Add Skill" />
         </form>
     `
     const skillContainer = document.querySelector('[data-id= "add skill here"]')

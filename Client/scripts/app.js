@@ -1,6 +1,4 @@
-import { indexFighter, createFighter, showFighter, updateFighter, deleteFighter, signUp, signIn,  
-		 
-} from './api.js'
+import { indexFighter, createFighter, showFighter, updateFighter, deleteFighter, signUp, signIn} from './api.js'
 import {
 	//fighter
 	onIndexFighterSuccess,
@@ -10,8 +8,7 @@ import {
 	onUpdateFighterSuccess,
 	onDeleteFighterSuccess,
 	onSignUpSuccess,
-	onSignInSuccess,
-	 
+	onSignInSuccess, 
 } from './ui.js'
 
 const createFighterForm = document.querySelector('#create-fighter-form')
@@ -19,8 +16,6 @@ const indexFighterContainer = document.querySelector('#index-fighter-container')
 const showFighterContainer = document.querySelector('#show-fighter-container')
 const signUpContainer = document.querySelector('#sign-up-form-container')
 const signInContainer = document.querySelector('#sign-in-form-container')
-
-
 
 //create fighter form
 createFighterForm.addEventListener('submit', (event) => {
@@ -34,7 +29,6 @@ createFighterForm.addEventListener('submit', (event) => {
 				wins: event.target['wins'].value,
                 losses: event.target['losses'].value,
 				draws: event.target['draws'].value,
-
 			},
 		}
 

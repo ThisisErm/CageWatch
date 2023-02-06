@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Add the `defer` attribute to this script tag -->
     <script type="module" src="./scripts/app.js"></script>
     <title>MMA Fighter Tracker</title>
     <link rel="stylesheet" href = "index.css">
@@ -11,29 +12,26 @@
 <body>
     
 <h1 id="title">MMA Fighter Tracker</h1>
-<div id="message-container">
-</div>
+<div id="message-container"></div>
 <br>
-
 
 <!-- nav bar -->
 <ul>
     <li class="create-button"><a href="#create-fighter">Create fighter</a></li>
     <li class="index-button"><a href="#showfighter">See Fighters</a></li>
     <li class="logout-button"><a href="#logout">Log Out</a></li>
-
 </ul>
-  
-
 
 <!-- Show fighters -->
-    <main id="fighters">
+<main id="fighters">
     <h2 id="fighter-title">Fighters</h2>
+    <!-- Fo good semantic HTML only have 1 `main` element per DOM. This `main` element should also wrap the main contents of the page. Think of the `nav`, `main`, and `footer` elements as 3 parts of your page. The `nav` should be at the top and wrap navigation items only and generally should have the same contents as the user changes views. The `main` should wrap everything that is the content of the page. The `main`s contents will change as the user goes through different views as they use this app. And last the `footer` should only wrap footer items like copyright or links to find your socials and like the `nav` should not change as the user changes views.  -->
     <main id="index-fighter-container"></main>
     <main id="show-fighter-container"></main>
-    </main>
+</main>
 
 <!-- create fighters -->
+<!-- `class` attribute should not have a space between declaration and assignment. Also use double quotes to fit HTML syntax.  -->
 <form id="create-fighter-form" class ='hidden'>
     <h2>Create fighter</h2>
     <input type="text" name="firstName" placeholder="first name">
@@ -42,9 +40,12 @@
     <input type="number" name="losses" placeholder="losses">
     <input type="number" name="draws" placeholder="draws">
     <input type="submit" value="Create fighter">
-    </form>   
+    </form> 
+<!-- Body element is not wrapping contents on the page. Alway make sure to have your `body` element wrapping all visible content on the page. This should include `nav`, `main`, and `footer`   -->
 </body>
+<!-- Same comment as above with only using 1 `main` element per DOM -->
 <main>
+    <!-- Indentation from this point to the end of the file is all over the place. When coding we want to make sure we follow the style rules for each language. Even though, most of the time, our indentation will change if the code runs or not we want our code to be human readable. This is not human readable -->
     <!-- authentication -->
     <div id="auth-container" class="container">
     <div class="row">

@@ -23,7 +23,6 @@ export const signIn = (data) => {
 	})
 }
 
-
 //fighter
 export const indexFighter = () => {
     return fetch(`http://localhost:8000/fighters`)
@@ -61,6 +60,8 @@ export const deleteFighter = (id) => {
     })
     
 }
+
+// Same notes here as the indentation notes I left over in the HTML file. We need to make sure we format our files to look clean and easy to read. 
 // Skills
 export const indexSkills = (fighterId) => {
     return fetch(`http://localhost:8000/fighters/${fighterId}/skills`)
@@ -97,5 +98,3 @@ export const indexSkills = (fighterId) => {
     method: 'DELETE'
     })
     }
-
-

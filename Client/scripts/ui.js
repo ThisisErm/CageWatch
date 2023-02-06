@@ -4,9 +4,8 @@ import {createSkill,
 
 import { store } from './store.js'
 
-
+// Instead of doing this over here create a class that holds this style rule then assign it to the section you need with the `class` attribute over in HTML. That way it already has it with CSS instead of with JS
 document.querySelector('#fighters').style.display = 'none'
-
 
 const indexFighterContainer = document.querySelector('#index-fighter-container')
 const messageContainer = document.querySelector('#message-container')
@@ -16,12 +15,12 @@ const createFighterForm = document.querySelector('#create-fighter-form')
 //add auth
 const authContainer = document.querySelector('#auth-container')
 
-
 //buttons
 const logOut = document.querySelector('.logout-button')
 const indexButton = document.querySelector('.index-button')
 const createButton = document.querySelector('.create-button')
 
+// `.addEventListener`s should go into the `app.js` file. They are something that controls the flow of the application so they should be in the control center or the `app.js` file.
 //go home (refresh)
 logOut.addEventListener('click', function(){
     location.reload()
@@ -45,7 +44,6 @@ createButton.addEventListener('click', function() {
     showFighterContainer.style.display ='none'
     authContainer.style.display= 'none'
     document.querySelector('#fighter-title').style.display = 'none'
-
 })
 
 //Index fighters
@@ -64,7 +62,7 @@ export const onFailure = (error) => {
     messageContainer.innerHTML = `
         <h3>You've got an error! :(</h3>
         <p>${error}</p>
-    `
+  `
 }
 
 export const onCreateFighterSuccess = () => {
@@ -73,8 +71,10 @@ export const onCreateFighterSuccess = () => {
 
 //show individual fighters
 export const onShowFighterSuccess = (fighter) => {
-    const fighterCard = document.querySelector('#fighter-card') 
+    const fighterCard = document.querySelector('#fighter-card')
+
     if (fighterCard) fighterCard.remove()
+
     const div = document.createElement('div')
     div.setAttribute('id', 'fighter-card')
 
@@ -98,6 +98,7 @@ export const onShowFighterSuccess = (fighter) => {
         </form>
         <button type="button" data-id="${fighter._id}">Delete fighter</button>
     `
+
     showFighterContainer.appendChild(div)
     indexFighterContainer.style.display ='none'
     showFighterContainer.style.display ='block'
@@ -141,8 +142,6 @@ export const onCreateSkillSuccess =() => {
     
 }
 
-
-
 export const onUpdateFighterSuccess = () => {
     messageContainer.innerText = 'Update was successful :)'
 }
@@ -164,4 +163,3 @@ export const onSignInSuccess = (userToken) => {
     indexButton.style.display = 'block'
     logOut.style.display= 'block'
 }
-

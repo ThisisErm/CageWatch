@@ -26,22 +26,32 @@ export const signIn = (data) => {
 
 //fighter
 export const indexFighter = () => {
-    return fetch(`http://localhost:8000/fighters`)
+    return fetch(`http://localhost:8000/fighters`, {
+        headers: {
+            'Authorization': `Bearer ${store.userToken}`,
+        },
+    })
 }
+
 
 export const createFighter = (data) => {
     return fetch(`http://localhost:8000/fighters`, {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${store.userToken}`,
         },
         body: JSON.stringify(data)
     })
 }
 
 export const showFighter = (id) => {
-    return fetch(`http://localhost:8000/fighters/${id}`)
+    return fetch(`http://localhost:8000/fighters/${id}`, {
+        headers: {
+            Authorization: `Bearer ${store.userToken}`,
+        }
+    })
 }
 
 export const updateFighter = (data, id) => {
@@ -49,7 +59,8 @@ export const updateFighter = (data, id) => {
         method: 'PATCH',
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${store.userToken}`,
         },
         body: JSON.stringify(data)
     })
@@ -57,36 +68,52 @@ export const updateFighter = (data, id) => {
 
 export const deleteFighter = (id) => {
     return fetch(`http://localhost:8000/fighters/${id}`, {
-        method: 'DELETE'
+        method: 'DELETE',
+        headers: {
+            Authorization: `Bearer ${store.userToken}`,
+        },
     })
     
 }
 // Skills
 export const indexSkills = (fighterId) => {
-    return fetch(`http://localhost:8000/fighters/${fighterId}/skills`)
-    }
+    console.log('fighterId:', fighterId);
+    return fetch(`http://localhost:8000/fighters/${fighterId}/skills`, {
+        headers: {
+            Authorization: `Bearer ${store.userToken}`,
+        },
+    })
+}
+
+
     
     export const createSkill = (data) => {
     return fetch(`http://localhost:8000/skills`, {
     method: 'POST',
     headers: {
         'Accept': 'application/json', 
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${store.userToken}`,
     },
     body: JSON.stringify(data)
     })
     }
     
     export const showSkill = (fighterId, skillId) => {
-    return fetch(`http://localhost:8000/fighters/${fighterId}/skills/${skillId}`)
+    return fetch(`http://localhost:8000/fighters/${fighterId}/skills/${skillId}`), {
+        headers: {
+            Authorization: `Bearer ${store.userToken}`,
+        },
     }
+}
     
     export const updateSkill = (data, fighterId, skillId) => {
     return fetch(`http://localhost:8000/fighters/${fighterId}/skills/${skillId}`, {
     method: 'PATCH',
     headers: {
     'Accept': 'application/json',
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    Authorization: `Bearer ${store.userToken}`,
     },
     body: JSON.stringify(data)
     })
@@ -94,8 +121,12 @@ export const indexSkills = (fighterId) => {
     
     export const deleteSkill = (fighterId, skillId) => {
     return fetch(`http://localhost:8000/fighters/${fighterId}/skills/${skillId}`, {
-    method: 'DELETE'
-    })
-    }
+		method: 'DELETE',
+		headers: {
+			Authorization: `Bearer ${store.userToken}`,
+		},
+	})
+}
+
 
 

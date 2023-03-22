@@ -22,11 +22,18 @@ const logOut = document.querySelector('.logout-button')
 const indexButton = document.querySelector('.index-button')
 const createButton = document.querySelector('.create-button')
 
-//go home (refresh)
-logOut.addEventListener('click', function(){
-    location.reload()
+//logout
+function logout() {
+    store.userToken = null;
+    localStorage.removeItem('userToken');
+    location.reload();
+}
 
-})
+
+//go home (refresh)
+logOut.addEventListener('click', function() {
+    logout();
+  });
 
 //index fighters
 indexButton.addEventListener('click', function() {

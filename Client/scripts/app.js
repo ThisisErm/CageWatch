@@ -1,4 +1,4 @@
-import { indexFighter, createFighter, showFighter, updateFighter, deleteFighter, signUp, signIn,  
+import { indexFighter, createFighter, showFighter, updateFighter, deleteFighter, signUp, signIn, indexSkills,  
 		 
 } from './api.js'
 import {
@@ -19,7 +19,26 @@ const indexFighterContainer = document.querySelector('#index-fighter-container')
 const showFighterContainer = document.querySelector('#show-fighter-container')
 const signUpContainer = document.querySelector('#sign-up-form-container')
 const signInContainer = document.querySelector('#sign-in-form-container')
+const signupButton = document.querySelector('#show-sign-up-form')
+const signinButton = document.querySelector('#hide-sign-up-form')
 
+signupButton.addEventListener('click', function() {
+  if (signUpContainer.style.display === 'none') {
+    signUpContainer.style.display = 'block';
+	signInContainer.style.display = 'none'
+  } else {
+    signUpContainer.style.display = 'none';
+  }
+})
+
+signinButton.addEventListener('click', function() {
+	if (signInContainer.style.display === 'none') {
+		signInContainer.style.display = 'block';
+		signUpContainer.style.display = 'none';
+	} else {
+		signInContainer.style.display = 'none';
+	}
+  })
 
 
 //create fighter form
@@ -52,7 +71,9 @@ indexFighterContainer.addEventListener('click', (event) => {
 
     showFighter(id)
 			.then((res) => res.json())
-			.then((res) => onShowFighterSuccess(res.fighter))
+			.then((res) => {
+				onShowFighterSuccess(res.fighter)
+			})
 			.catch(onFailure)
 })
 
@@ -119,11 +140,10 @@ signInContainer.addEventListener('submit', (event) => {
 		.then(indexFighter)
 		.then((res) => res.json())
 		.then((res) => onIndexFighterSuccess(res.fighters))
+		.then(indexSkills(fighterId))
 		.catch(onFailure)
-
-				//index fighters
 })
-
+				//index fighters
 showFighterContainer.addEventListener('click', (event) => {
 	const id = event.target.getAttribute('data-id')
 

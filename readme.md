@@ -1,6 +1,9 @@
-# MMA-Fighter-Tracker-CRUD
-MMA Fighter Tracker APP: A simple crud app to track MMA fighters' and their professional records.
+# CageWatch: Front-End
+This repository is the front-end of CageWatch: A simple CRUD app to track MMA fighters' and their professional records.
 Users can add new fighters, as well access, edit, and delete existing fighters. USers also have the option to add skills to existing fighters to match their professional record. 
+
+## The repository for the app's server can be found [here] (https://github.com/ThisisErm/CageWatch--Server)
+
 _________________________________________________________________
 ## Technologies used:
 * Javascript

@@ -2,7 +2,7 @@ import { store } from './store.js'
 
 // User
 export const signUp = (data) => {
-	return fetch(`http://localhost:8000/sign-up`, {
+	return fetch(`https://cagewatch.onrender.com/sign-up`, {
 		method: 'POST',
 		headers: {
 			'Accept': 'application/json',
@@ -13,7 +13,7 @@ export const signUp = (data) => {
 }
 
 export const signIn = (data) => {
-	return fetch(`http://localhost:8000/sign-in`, {
+	return fetch(`https://cagewatch.onrender.com/sign-in`, {
 		method: 'POST',
 		headers: {
 			'Accept': 'application/json',
@@ -26,7 +26,7 @@ export const signIn = (data) => {
 
 //fighter
 export const indexFighter = () => {
-    return fetch(`http://localhost:8000/fighters`, {
+    return fetch(`https://cagewatch.onrender.com/fighters`, {
         headers: {
             'Authorization': `Bearer ${store.userToken}`,
         },
@@ -35,7 +35,7 @@ export const indexFighter = () => {
 
 
 export const createFighter = (data) => {
-    return fetch(`http://localhost:8000/fighters`, {
+    return fetch(`https://cagewatch.onrender.com/fighters`, {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -47,7 +47,7 @@ export const createFighter = (data) => {
 }
 
 export const showFighter = (id) => {
-    return fetch(`http://localhost:8000/fighters/${id}`, {
+    return fetch(`https://cagewatch.onrender.com/fighters/${id}`, {
         headers: {
             Authorization: `Bearer ${store.userToken}`,
         }
@@ -55,7 +55,7 @@ export const showFighter = (id) => {
 }
 
 export const updateFighter = (data, id) => {
-    return fetch(`http://localhost:8000/fighters/${id}`, {
+    return fetch(`https://cagewatch.onrender.com/fighters/${id}`, {
         method: 'PATCH',
         headers: {
             'Accept': 'application/json',
@@ -67,7 +67,7 @@ export const updateFighter = (data, id) => {
 }
 
 export const deleteFighter = (id) => {
-    return fetch(`http://localhost:8000/fighters/${id}`, {
+    return fetch(`https://cagewatch.onrender.com/fighters/${id}`, {
         method: 'DELETE',
         headers: {
             Authorization: `Bearer ${store.userToken}`,
@@ -78,7 +78,7 @@ export const deleteFighter = (id) => {
 // Skills
 export const indexSkills = (fighterId) => {
     console.log('fighterId:', fighterId);
-    return fetch(`http://localhost:8000/fighters/${fighterId}/skills`, {
+    return fetch(`https://cagewatch.onrender.com/fighters/${fighterId}/skills`, {
         headers: {
             Authorization: `Bearer ${store.userToken}`,
         },
@@ -88,7 +88,7 @@ export const indexSkills = (fighterId) => {
 
     
     export const createSkill = (data) => {
-    return fetch(`http://localhost:8000/skills`, {
+    return fetch(`https://cagewatch.onrender.com/skills`, {
     method: 'POST',
     headers: {
         'Accept': 'application/json', 
@@ -100,7 +100,7 @@ export const indexSkills = (fighterId) => {
     }
     
     export const showSkill = (fighterId, skillId) => {
-    return fetch(`http://localhost:8000/fighters/${fighterId}/skills/${skillId}`), {
+    return fetch(`https://cagewatch.onrender.com/fighters/${fighterId}/skills/${skillId}`), {
         headers: {
             Authorization: `Bearer ${store.userToken}`,
         },
@@ -108,7 +108,7 @@ export const indexSkills = (fighterId) => {
 }
     
     export const updateSkill = (data, fighterId, skillId) => {
-    return fetch(`http://localhost:8000/fighters/${fighterId}/skills/${skillId}`, {
+    return fetch(`https://cagewatch.onrender.com/fighters/${fighterId}/skills/${skillId}`, {
     method: 'PATCH',
     headers: {
     'Accept': 'application/json',
@@ -120,7 +120,7 @@ export const indexSkills = (fighterId) => {
     }
     
     export const deleteSkill = (fighterId, skillId) => {
-    return fetch(`http://localhost:8000/fighters/${fighterId}/skills/${skillId}`, {
+    return fetch(`https://cagewatch.onrender.com/fighters/${fighterId}/skills/${skillId}`, {
 		method: 'DELETE',
 		headers: {
 			Authorization: `Bearer ${store.userToken}`,

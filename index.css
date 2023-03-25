@@ -83,14 +83,7 @@ form {
   font-weight: bold;
   }
 
-  #sign-up-form-container button {
-    background-color: #333;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    padding: 5px 10px;
-  }
+  #sign-up-form-container button,
   #sign-in-form-container button {
     background-color: #333;
     color: white;
@@ -99,7 +92,6 @@ form {
     cursor: pointer;
     padding: 5px 10px;
   }
-
 
 
 label {
@@ -184,3 +176,49 @@ input[type="submit"]:hover {
 .create-button, .index-button, .logout-button {
   display: none;
 }
+@media only screen and (max-width: 768px) {
+  /* Modify styles for screens that are 768px or less in width */
+  
+  /* Navigation */
+  ul {
+  font-size: 20px;
+  }
+  
+  /* Titles */
+  h1 {
+  font-size: 40px;
+  }
+  
+  h2 {
+  font-size: 25px;
+  }
+  
+  /* Forms */
+  form {
+  width: 90%;
+  }
+  
+  #sign-up-form-container,
+  #sign-in-form-container {
+  width: 90%;
+  height: auto;
+  }
+  
+  form input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"] {
+  width: 90%;
+  }
+  
+  /* Index Fighter Container */
+  #index-fighter-container {
+  width: 100%;
+  }
+  
+  /* Show Fighter Container */
+  #show-fighter-container {
+  width: 100%;
+  height: auto;
+  }
+  }
